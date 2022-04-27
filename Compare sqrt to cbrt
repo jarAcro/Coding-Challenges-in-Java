@@ -1,0 +1,13 @@
+//Compare if the square root of the forst position of a array is the same as the cube root of the 2nd position in an array.
+
+public class Challenge{
+	public static boolean squaresAndCubes(int[] arr) {
+	double x = Math.sqrt(arr[0]);
+	double y = Math.cbrt(arr[1]);
+if(x == y){
+	return true;	
+}else{
+	return false;
+		}
+	}
+}
