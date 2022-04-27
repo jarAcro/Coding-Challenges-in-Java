@@ -1,0 +1,15 @@
+
+
+public class Challenge {
+	public static String missingAngle(int angle1, int angle2) {
+		if(180 - (angle1 + angle2)  > 90 && 180 - (angle1 + angle2)  < 180){
+			return "obtuse";
+		}else if(180 - (angle1 + angle2)  < 90){
+			return "acute";
+		}else if(180 - (angle1 + angle2)  == 90){
+				return "right";
+		}
+	return "";
+	}
+	
+}
