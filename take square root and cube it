@@ -1,0 +1,6 @@
+public class Challenge {
+  public static int cubeSquareRoot(int num) {
+		int num1 = (int)Math.sqrt(num) ;
+			return (int)Math.pow(num1, 3);
+  }
+}
