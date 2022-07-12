@@ -1,0 +1,55 @@
+
+import java.util.Scanner;
+
+public class GiftTax {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Value of the gift?");
+        int value = Integer.valueOf(scan.nextLine());
+
+        //all tax rates
+        double taxRate1 = .08;
+        double taxRate2 = .10;
+        double taxRate3 = .12;
+        double taxRate4 = .15;
+        double taxRate5 = .17;
+
+        //tax amount at lower level
+        int lowLimit1 = 100;
+        int lowLimit2 = 1700;
+        int lowLimit3 = 4700;
+        int lowLimit4 = 22100;
+        int lowLimit5 = 142100;
+
+        //lowEnd numbers
+        int lowEnd1 = 5000;
+        int lowEnd2 = 25000;
+        int lowEnd3 = 55000;
+        int lowEnd4 = 200000;
+        int lowEnd5 = 1000000;
+
+        //math calculations
+        double sum1 = (lowLimit1 + (value - lowEnd1) * taxRate1);
+        double sum2 = (lowLimit2 + (value - lowEnd2) * taxRate2);
+        double sum3 = (lowLimit3 + (value - lowEnd3) * taxRate3);
+        double sum4 = (lowLimit4 + (value - lowEnd4) * taxRate4);
+        double sum5 = (lowLimit5 + (value - lowEnd5) * taxRate5);
+
+        if (value >= 5000 && value <= 25000) {
+            System.out.println("Tax: " + sum1);
+
+        } else if (value >= 25000 && value < 55000) {
+            System.out.println("Tax: " + sum2);
+        } else if (value >= 55000 && value < 200000) {
+            System.out.println("Tax: " + sum3);
+        } else if (value >= 200000 && value < 1000000) {
+            System.out.println("Tax: " + sum4);
+        } else if (value >= 1000000) {
+            System.out.println(sum5);
+        } else {
+            System.out.println("No tax!");
+        }
+    }
+}
