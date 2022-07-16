@@ -1,0 +1,52 @@
+/*Implement a program that asks the user for numbers (the program first prints "Write numbers: ") until the user gives the number -1.
+When the user writes -1, the program prints "Thx! Bye!" and ends.
+Extend the program so that
+it prints the sum of the numbers (not including the -1) the user has written.
+Extend the program so that it also prints the number of numbers
+(not including the -1) the user has written.
+Extend the program so that it prints the mean of the 
+numbers (not including the -1) the user has written.
+Extend the program so that it prints the number of even and odd numbers (excluding the -1).
+*/
+
+
+import java.util.Scanner;
+
+public class RepeatingBreakingAndRemembering {
+
+    public static void main(String[] args) {
+      
+        Scanner scanner = new Scanner(System.in);
+        int count = 0;
+        int sum = 0;
+        int numEven = 0;
+        int numOdd = 0;
+        //part 1
+        System.out.println("Give numbers:");
+
+        while (true) {
+            int nums = Integer.valueOf(scanner.nextLine());
+            if (nums == -1) {
+                break;
+            }
+            if (nums > -1) {
+                sum = sum + nums;
+                count = count + 1;
+            }
+            if (nums % 2 == 0) {
+                numEven = numEven + 1;
+            }
+            if (nums % 2 != 0) {
+                numOdd = numOdd + 1;
+            }
+
+        }
+        System.out.println("Thx! Bye!");
+        System.out.println("Sum: " + sum);
+        System.out.println("Numbers: " + count);
+        System.out.println("Average: " + (double) sum / count);
+        System.out.println("Even: " + numEven);
+        System.out.println("Odd: " + numOdd);
+    }
+
+}
