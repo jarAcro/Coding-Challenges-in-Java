@@ -1,0 +1,46 @@
+/*
+Write a program that reads names and birth years from the user until an empty line is entered. 
+The name and birth year are separated by a comma.
+
+After that the program prints the longest name and the average of the birth years.
+If multiple names are equally longest, you can print any of them.
+You can assume that the user enters at least one person.
+
+
+
+*/
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class PersonalDetails {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int length = 0;
+        int count = 0;
+        int sum = 0;
+        String name = "";
+
+        while (true) {
+
+            String input = scanner.nextLine();
+
+            if (input.equals("")) {
+                break;
+            }
+            String[] split = input.split(",");
+
+            sum = sum + Integer.valueOf(split[1]);
+            count = count + 1;
+
+            if (length < split[0].length()) {
+                length = split[0].length();
+                name = split[0];
+
+            }
+        }
+        System.out.println("Longest name: " + name);
+        System.out.println("Average of the birth years: " + (double) sum / count);
+    }
+}
