@@ -1,0 +1,78 @@
+/*
+Write a program that first reads book information from the user.
+The details to be asked for each book include the title, the number of pages and the publication year. 
+Entering an empty string as the name of the book ends the reading process.
+
+After this the user is asked for what is to be printed.
+If the user inputs "everything", all the details are printed: the book titles, 
+the numbers of pages and the publication years. However, if the user enters the string "name", 
+only the book titles are printed.
+*/
+Main:
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        ArrayList<Book> books = new ArrayList<>();
+        // implement here the program that allows the user to enter 
+        // book information and to examine them
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Title:");
+            String title = scanner.nextLine();
+            if (title.isEmpty()) {
+                break;
+            }
+            System.out.println("Pages:");
+            int pages = Integer.valueOf(scanner.nextLine());
+            System.out.println("Publication year:");
+            int year = Integer.valueOf(scanner.nextLine());
+
+            books.add(new Book(title, pages, year));
+        }
+        System.out.println("What information will be printed?");
+        String input = scanner.nextLine();
+
+        for (Book book : books) {
+            if (input.equals("everything")) {
+                System.out.println(book);
+            } else if (input.equals("name")) {
+                System.out.println(book.getTitle());
+            }
+
+        }
+    }
+
+}
+
+Book.java:
+
+public class Book {
+
+    private String title;
+    private int numPages;
+    private int pubDate;
+
+    public Book(String title, int numPages, int pubDate) {
+        this.title = title;
+        this.numPages = numPages;
+        this.pubDate = pubDate;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public int getNumPages() {
+        return numPages;
+    }
+
+    public String toString() {
+        return this.title + ", " + this.numPages + " pages, " + this.pubDate;
+    }
+
+}
